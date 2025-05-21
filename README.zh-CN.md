@@ -1,5 +1,9 @@
 # 俄罗斯方块游戏
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
+一个使用纯HTML、CSS和JavaScript实现的俄罗斯方块游戏。
+
 一个使用纯HTML、CSS和JavaScript实现的俄罗斯方块游戏。
 
 ## 游戏概述
