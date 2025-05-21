@@ -1,110 +1,121 @@
-# Tetris Game
+# 俄罗斯方块游戏
 
-[English](README.md) | [简体中文](README.zh-CN.md)
+[English](README.EN.md) | [简体中文](README.md)
 
-A Tetris game implemented with pure HTML, CSS and JavaScript.
+一个使用纯HTML、CSS和JavaScript实现的俄罗斯方块游戏。
 
-## Game Overview
-Tetris is a classic puzzle game. This implementation is built with pure HTML, CSS and JavaScript, without any external frameworks or libraries. The game retains the core gameplay of classic Tetris while adding modern interface design and enhanced features.
+## 游戏概述
+俄罗斯方块是一款经典的益智游戏，本实现使用纯HTML、CSS和JavaScript构建，无需任何外部框架或库。游戏保留了经典俄罗斯方块的核心玩法，同时加入了现代界面设计和增强功能。
 
-## Game Features
+## 游戏特点
 
-- 🎮 **Classic Gameplay**: Contains 7 different shapes of blocks, which can be rotated and moved to eliminate rows
-- 👁️ **Block Preview**: Displays the next block to appear, helping players plan ahead
-- 👻 **Ghost Block**: Shows a semi-transparent hint of where the current block will land
-- 🔢 **Scoring System**: Calculates score based on eliminated rows and displays current level
-- 🎚️ **Difficulty Selection**: Provides beginner, intermediate, and advanced difficulty options
-- 🎛️ **Game Controls**: Supports pause/resume and restart functions
+- 🎮 **经典玩法**：包含7种不同形状的方块，通过旋转和移动来消除行
+- 👁️ **方块预览**：显示下一个将出现的方块，帮助玩家提前规划
+- 👻 **幽灵方块**：显示当前方块落地位置的半透明提示
+- 🔢 **分数系统**：根据消除行数计算得分，并显示当前等级
+- 🎚️ **难度选择**：提供初级、中级、高级三种难度选择
+- 🎛️ **游戏控制**：支持暂停/继续、重新开始功能
 
-## Controls
+## 操作说明
 
-- ← → : Move block left/right
-- ↑ : Rotate block
-- ↓ : Accelerate block falling
-- Space : Drop block directly to the bottom
-- P : Pause/resume game
-- R : Restart game
+- ← → : 左右移动方块
+- ↑ : 旋转方块
+- ↓ : 加速方块下落
+- 空格 : 方块直接落到底部
+- P : 暂停/继续游戏
+- R : 重新开始游戏
 
-## Game Screenshot
 
-![Tetris Game Screenshot](https://cdn.forminio.cn/picx-images-hosting@master/wenzhan/俄罗斯方块截图.2rvd5ud368.webp)
+## 游戏截图
 
-## Online Demo
+![俄罗斯方块游戏截图](https://cdn.forminio.cn/picx-images-hosting@master/wenzhan/俄罗斯方块截图.2rvd5ud368.webp)
 
-🎮 [Click here to play the game online](https://blog.forminio.cn/e-luo-si-fang-kuai)
+## 在线体验
 
-## Installation and Running
-Clone the repository:
+🎮 [点击这里在线体验游戏](https://blog.forminio.cn/e-luo-si-fang-kuai)
+
+安装与运行
+克隆仓库：
 
 ```bash
 git clone https://github.com/Forminio/tetris-game.git
 ```
 
-Open the index.html file to start the game
+打开index.html文件即可开始游戏
 
-## Core Implementation Logic
 
-### Data Structures
 
-1. **Game Board Grid**: Uses a two-dimensional array `boardGrid` to represent the game board, 0 indicates empty, non-zero values indicate fixed block types
-2. **Block Shapes**: Uses the `SHAPES` array to store 7 different shapes of blocks and their types
-3. **Current Block**: Uses `currentShape`, `currentType`, `currentRow`, `currentCol` to track the current active block
-4. **Next Block**: Uses `nextShape` and `nextType` to store the next block to appear
+## 核心实现逻辑
 
-### Main Functional Modules
+### 数据结构
 
-#### 1. Game Initialization
+1. **游戏板网格**：使用二维数组 `boardGrid` 表示游戏板，0表示空白，非0值表示已固定的方块类型
+2. **方块形状**：使用 `SHAPES` 数组存储7种不同形状的方块及其类型
+3. **当前方块**：使用 `currentShape`、`currentType`、`currentRow`、`currentCol` 跟踪当前活动方块
+4. **下一个方块**：使用 `nextShape` 和 `nextType` 存储下一个将出现的方块
 
-The game initializes by setting basic parameters (rows, columns, block size, etc.), creating the game board grid, and adding keyboard and button event listeners.
+### 主要功能模块
 
-#### 2. Block Generation and Movement
+#### 1. 游戏初始化
 
-When generating a block, it randomly selects a shape and sets the initial position. When moving a block, it first checks if the move is valid (whether it will collide with other blocks or boundaries), then updates the position and redraws.
 
-#### 3. Collision Detection and Block Fixing
+游戏初始化时，设置基本参数（行数、列数、方块大小等），创建游戏板网格，并添加键盘和按钮事件监听器。
 
-Collision detection is used to determine if a block can move to a specified position. When a block can no longer fall, it will be fixed to the game board, then check if there are rows to be eliminated, and generate a new block.
+#### 2. 方块生成与移动
 
-#### 4. Row Elimination and Score Calculation
 
-When a row is filled with blocks, the row will be eliminated, and a new empty row will be added at the top. The number of eliminated rows affects the score and game level, and level increases will speed up block falling.
+方块生成时，会随机选择一种形状，并设置初始位置。方块移动时，会先检查移动是否有效（是否会与其他方块或边界碰撞），然后更新位置并重绘。
 
-#### 5. User Interaction
+#### 3. 碰撞检测与方块固定
 
-The game supports keyboard and button operations. Users can control block movement, rotation, and accelerated falling through the keyboard, and can also start, pause, and restart the game, as well as select difficulty levels through buttons.
 
-## Core Functionality Details
+碰撞检测用于判断方块是否可以移动到指定位置。当方块无法继续下落时，会将其固定到游戏板上，然后检查是否有可消除的行，并生成新的方块。
 
-### 1. Block Rotation Algorithm
+#### 4. 行消除与分数计算
 
-Block rotation is implemented through matrix transposition and row reversal:
 
-The rotation algorithm creates a copy of the block matrix and then rotates it 90 degrees. If the rotated position causes a collision, it will attempt a "wall kick" operation, trying to move left or right to accommodate the rotation.
+当一行被方块填满时，该行会被消除，并在顶部添加新的空行。消除行数会影响得分和游戏等级，等级提升会加快方块下落速度。
 
-### 2. Ghost Block Implementation
+#### 5. 用户交互
 
-The ghost block is a semi-transparent hint of the lowest position the current block can fall to without moving:
 
-The ghost block determines its position by simulating the current block falling until collision, then draws a semi-transparent block at that position, helping players plan their landing spot.
+游戏支持键盘和按钮操作，用户可以通过键盘控制方块移动、旋转和加速下落，也可以通过按钮开始、暂停和重新开始游戏，以及选择难度级别。
 
-### 3. Game State Management
+## 核心功能详解
 
-Game state management ensures the game behaves correctly in different states, such as stopping block falling in the paused state and displaying the end screen in the game over state.
+### 1. 方块旋转算法
 
-## Implementation Highlights
+方块旋转是通过矩阵转置和行反转实现的：
 
-1. **Modular Design**: Game logic is broken down into multiple functional modules, such as block generation, collision detection, row elimination, etc., making the code structure clear.
 
-2. **Responsive Interface**: The game interface uses CSS to implement responsive design, adapting to different screen sizes.
+旋转算法会创建方块矩阵的副本，然后进行90度旋转。如果旋转后的位置发生碰撞，会尝试"墙踢"（wall kick）操作，即尝试向左右移动以适应旋转。
 
-3. **Efficient Rendering**: Uses DOM operations rather than Canvas drawing, improving performance by only updating the changed parts.
+### 2. 幽灵方块实现
 
-4. **Enhanced Game Experience**: Added ghost blocks, block preview, difficulty selection, and other features to enhance the gaming experience.
+幽灵方块是当前方块在不移动的情况下，能够下落到的最低位置的半透明提示：
 
-5. **State Management**: Implemented complete game state management, including start, pause, resume, and end states.
 
-## Contribution Guidelines
-Pull Requests and Issues are welcome!
+幽灵方块通过模拟当前方块下落直到碰撞来确定位置，然后在该位置绘制半透明的方块，帮助玩家规划落点。
 
-### License
+### 3. 游戏状态管理
+
+
+游戏状态管理确保游戏在不同状态下有正确的行为，例如在暂停状态下停止方块下落，在游戏结束状态下显示结束界面等。
+
+## 实现亮点
+
+1. **模块化设计**：游戏逻辑被分解为多个功能模块，如方块生成、碰撞检测、行消除等，使代码结构清晰。
+
+2. **响应式界面**：游戏界面使用CSS实现响应式设计，适配不同屏幕尺寸。
+
+3. **高效渲染**：使用DOM操作而非Canvas绘制，通过只更新变化的部分来提高性能。
+
+4. **增强游戏体验**：添加了幽灵方块、方块预览、难度选择等功能，提升游戏体验。
+
+5. **状态管理**：实现了完整的游戏状态管理，包括开始、暂停、继续和结束状态。
+
+## 贡献指南
+欢迎提交Pull Request或Issue！
+
+### 许可证
 MIT License
